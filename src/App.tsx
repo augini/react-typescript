@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Counter } from './Counter';
+import { TextField } from './TextField';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TextField
+        user={{ lastName: 'user2', name: 'user1' }}
+        handleChange={(e) => {
+          console.log(e.target);
+        }}
+      />
+      <Counter>{({ count, setCount }) => <div>{count}</div>}</Counter>
     </div>
   );
-}
+};
 
 export default App;
